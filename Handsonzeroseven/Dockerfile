@@ -5,10 +5,11 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Handsonzeroseven/Handsonzeroseven.csproj", "Handsonzeroseven/"]
-RUN dotnet restore "Handsonzeroseven/Handsonzeroseven.csproj"
+COPY ["DNAzure-FirstWebApi/Handsonzeroseven/Handsonzeroseven.csproj", "Handsonzeroseven/"]
+RUN dotnet restore "DNAzure-FirstWebApi/Handsonzeroseven/Handsonzeroseven.csproj"
 COPY . .
 WORKDIR "/src/Handsonzeroseven"
 RUN dotnet build "Handsonzeroseven.csproj" -c Release -o /app/build
